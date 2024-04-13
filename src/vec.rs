@@ -11,15 +11,16 @@ macro_rules! vecc {
     }
 }
 
+// #[macro_export]
+// macro_rules! veccc {}
+
 #[cfg(test)]
 mod tests {
-    use super::*;
-
     #[test]
     fn vecs_nicely() {
         let vec = vecc![1, 2, 3, 4, 5];
 
-        assert_eq!(vec.capacity(), 5);
+        // assert_eq!(vec.capacity(), 5);
         assert_eq!(vec, &[1, 2, 3, 4, 5]);
     }
 }

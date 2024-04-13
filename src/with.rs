@@ -1,6 +1,6 @@
 #[macro_export]
 macro_rules! with {
-    ($this:ident, $($prop:ident = $val:expr);*) => {
+    ($this:ident, { $($prop:ident = $val:expr);* $(;)?}) => {
         $($this.$prop = $val);*
     };
 }
@@ -18,10 +18,11 @@ mod tests {
 
         let mut this = TestStruct::default();
 
-        with!(this,
+        with!(this, {
             a = 1;
             b = 2;
-            c = 3);
+            c = 3;
+        });
 
         assert_eq!(&this.a, &1);
         assert_eq!(&this.b, &2);

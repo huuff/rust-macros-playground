@@ -1,4 +1,3 @@
-// TODO: Disable clippy lint
 #[macro_export]
 macro_rules! vecc {
     ($( $x:expr ), *) => {
@@ -23,6 +22,7 @@ macro_rules! veccc {
 #[cfg(test)]
 mod tests {
     #[test]
+    #[allow(clippy::vec_init_then_push)]
     fn vecs_nicely() {
         let vec = vecc![1, 2, 3, 4, 5];
 
